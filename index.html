@@ -43,7 +43,7 @@
 
     .character {
       position: absolute;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: filter 0.3s ease, opacity 0.3s ease;
     }
 
     .character img {
@@ -55,12 +55,16 @@
       position: absolute;
       top: 0;
       left: 100%;
-      width: 200px;
+      width: 270px;
       background-color: rgba(0, 0, 0, 0.8);
       color: white;
-      padding: 10px;
+      padding: 15px;
       opacity: 0;
       transition: opacity 0.3s ease;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
     }
 
     .character:hover .description-box {
@@ -75,10 +79,94 @@
       opacity: 0.2;
     }
 
-    /* Hover effect: grow character slightly */
-    .character:hover {
-      transform: scale(1.1); /* Grows the character by 10% */
+    /* Scale the character when hovered */
+    .character.scaled {
+      transform: scale(1.05); /* Slightly scale the character */
     }
+
+    /* Fix overflow for the 4th character */
+    #character4 .description-box {
+      left: -320px; /* Move description box to the left */
+    }
+
+    #character3 .description-box {
+      left: -320px; /* Move description box to the left */
+    }
+
+    /* Ensure boxes are not overflowing on small screens */
+    @media (max-width: 600px) {
+      .description-box {
+        width: 180px;
+        font-size: 12px;
+      }
+    }
+    .character:hover {
+      transform: translate(-4px, -4px); /* Move the character 4px in the opposite direction */
+    }
+
+  /* Optional: Add some smooth transition effect */
+    .character {
+      transition: transform 0.3s ease; /* Ensures smooth movement */
+    }
+    /* Default styles for larger screens */
+
+/* Styles for smaller screens (like tablets and phones) */
+@media (max-width: 1024px) {
+  .image-container img {
+    width: 90%; /* Resize background image */
+    height: auto;
+  }
+
+  /* Resize characters to fit smaller screens */
+  .character {
+    width: 200px;  /* Smaller width for characters */
+    height: auto;  /* Maintain aspect ratio */
+  }
+
+  .description-box {
+    width: 220px;  /* Smaller description box */
+    font-size: 12px;  /* Adjust font size */
+  }
+
+  /* Stack characters vertically on smaller screens */
+  #character1, #character2, #character3, #character4 {
+    position: relative; /* Stack vertically */
+    margin: 20px 0;
+    left: 0;
+    top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Further adjust character size */
+  .character {
+    width: 150px;
+    height: auto;
+  }
+
+  .description-box {
+    width: 180px;
+    font-size: 10px;  /* Further decrease font size */
+  }
+
+  /* Stack characters vertically with more spacing */
+  #character1, #character2, #character3, #character4 {
+    left: 0;
+    top: 0;
+    margin: 30px 0;  /* More space between characters */
+  }
+}
+/* Adjust hover effect for small screens */
+@media (max-width: 600px) {
+  .character:hover {
+    transform: translate(-2px, -2px); /* Less movement on small screens */
+  }
+}
   </style>
 </head>
 <body>
@@ -86,24 +174,25 @@
   <div class="image-container">
     <img src="PluffyEE_Refsheet.png" alt="Background" class="background-image" />
 
-    <!-- Character placeholders -->
+    <!-- Character 1 -->
     <div class="character" id="character1">
-      <img src="1.png" alt="Character 1" />
+      <img src="1.png" usemap="#image-map" alt="Character 1">
       <div class="description-box">
         <table>
           <thead>
             <tr>
-              <th>Character 1</th>
+              <th>A thunderous wolf, childish dog</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Description for Character 1</td>
+              <td>Born to an unlikely pair - a proud wolf father and a gentle dog mother - Pluffyee is a unique hybrid with a striking appearance. His body is adorned with lightning-shaped scars, which he proudly displays as badges of honor. These distinctive markings make him stand out, especially when paired with his cool, mysterious demeanor. Yet beneath this impressive exterior lies a heart that's surprisingly childish - even more so than his brother Plufye.</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+
 
     <div class="character" id="character2">
       <img src="2.png" alt="Character 2" />
@@ -111,12 +200,12 @@
         <table>
           <thead>
             <tr>
-              <th>Character 2</th>
+              <th>A Shy Star in Waiting</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Description for Character 2</td>
+              <td>Pluffyee (spelled with two 'f's and two 'e's, as he's quite particular about his name) has a secret that might surprise you: he's actually quite shy about joining the furry community. He's been planning his grand entrance for quite some time, hoping to make such a spectacular impression that he'll finally step out of his brother Plufye's shadow.</td>
             </tr>
           </tbody>
         </table>
@@ -129,12 +218,12 @@
         <table>
           <thead>
             <tr>
-              <th>Character 3</th>
+              <th>Thunder's Gentle Heart</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Description for Character 3</td>
+              <td>While his tough appearance might seem intimidating at first glance, Pluffyee is actually one of the gentlest souls you'll ever meet. He absolutely adores being petted and promises not to bite, no matter how intimidating those thunder scars might make him appear. His playful nature always shines through, revealing the sweet personality behind the cool façade.</td>
             </tr>
           </tbody>
         </table>
@@ -147,12 +236,12 @@
         <table>
           <thead>
             <tr>
-              <th>Character 4</th>
+              <th>The Perfect Storm of Personality</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Description for Character 4</td>
+              <td>Those who take the time to know Pluffyee discover a delightful contradiction: a tough-looking hybrid who's really just a big softie at heart. His unique blend of cool appearance and childish charm makes him impossible not to love, and he's always eager to make new friends - once he gets past his initial shyness, of course.</td>
             </tr>
           </tbody>
         </table>
@@ -238,3 +327,4 @@
 
 </body>
 </html>
+
