@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="Daily Machiato.svg" type="image/svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pluffyee - A Thunderous Wolf with a Childlish Dog</title>
   <style>
@@ -68,7 +67,7 @@
       position: absolute;
       top: 0;
       left: 100%;
-      width: 270px;
+      width: 320px;
       background-color: rgba(0, 0, 0, 0.8);
       color: white;
       padding: 15px;
@@ -100,6 +99,9 @@
     #character3 .description-box {
       left: -50px;
       top: -260px;
+    }
+    #character5 .description-box {
+      left: -200px;
     }
   </style>
 </head>
@@ -185,7 +187,23 @@
       </div>
     </div>
   </div>
-
+  <div class="character" id="character5">
+      <img src="wolfdog.png" alt="Character 5">
+      <div class="description-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Do not touch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>https://pluffyee.github.io/pluff/</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   <script>
     function calculateScale() {
       const container = document.querySelector('.container');
@@ -236,6 +254,13 @@
         left: 987,
         top: 116,
         width: 246,
+        height: 295
+      },
+      {
+        id: 'character5',
+        left: 1166,
+        top: 590,
+        width: 184,
         height: 295
       }
     ];
