@@ -232,10 +232,10 @@
   function setCharacterProperties(config) {
     const character = document.getElementById(config.id);
     if (character) {
-      character.style.left = `${config.left}%`;
-      character.style.top = `${config.top}%`;
-      character.style.width = `${config.width}%`;
-      character.style.height = `${config.height}%`;
+      character.style.left = `${config.left}vw`;
+      character.style.top = `${config.top}vh`;
+      character.style.width = `${config.width}vw`;
+      character.style.height = `${config.height}vh`;
     }
   }
 
