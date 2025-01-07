@@ -52,7 +52,7 @@
 
     .character img {
       width: 100%;
-      height: 100%;
+      height: auto;
     }
 
     .description-box {
@@ -195,50 +195,48 @@
     </div>
   </div>
 
-    <script>
-    // Configuration for character positions and sizes
-    const characterConfigs = [
-      {
-        id: 'character1',
-        x: 33,
-        y: 160,
-        width: 402,
-        height: 459
-      },
-      {
-        id: 'character2',
-        x: 433,
-        y: 150,
-        width: 432,
-        height: 459
-      },
-      {
-        id: 'character3',
-        x: 840,
-        y: 295,
-        width: 392,
-        height: 455
-      },
-      {
-        id: 'character4',
-        x: 1100,
-        y: 123,
-        width: 292,
-        height: 325
-      }
-    ];
-
-    // Apply configurations to set position and size
-    function setCharacterProperties(config) {
-      const character = document.getElementById(config.id);
-      if (character) {
-        character.style.left = `${config.x}px`;
-        character.style.top = `${config.y}px`;
-        character.style.width = `${config.width}px`;
-        character.style.height = `${config.height}px`;
-      }
+  <script>
+  const characterConfigs = [
+    {
+      id: 'character1',
+      left: 2.3, // Position relative to parent width (33px/1280px * 100)
+      top: 13.7, // Position relative to parent height (160px/1280px * 100)
+      width: 27.9, // Width relative to parent width (402px/1280px * 100)
+      height: 76.6 // Height relative to parent height (459px/1280px * 100)
+    },
+    {
+      id: 'character2',
+      left: 30.1, // Position relative to parent width (433px/1280px * 100)
+      top: 12.5, // Position relative to parent height (150px/1280px * 100)
+      width: 29.9, // Width relative to parent width (432px/1280px * 100)
+      height: 76.6 // Height relative to parent height (459px/1280px * 100)
+    },
+    {
+      id: 'character3',
+      left: 58.3, // Position relative to parent width (840px/1280px * 100)
+      top: 33.9, // Position relative to parent height (295px/1280px * 100)
+      width: 27.1, // Width relative to parent width (392px/1280px * 100)
+      height: 55.5 // Height relative to parent height (455px/1280px * 100)
+    },
+    {
+      id: 'character4',
+      left: 77.1, // Position relative to parent width (1105px/1280px * 100)
+      top: 9.8, // Position relative to parent height (127px/1280px * 100)
+      width: 19.3, // Width relative to parent width (283px/1280px * 100)
+      height: 48.0 // Height relative to parent height (295px/1280px * 100)
     }
+  ];
 
+  function setCharacterProperties(config) {
+    const character = document.getElementById(config.id);
+    if (character) {
+      console.log(`Setting position for ${config.id}: left=${config.left}vw, top=${config.top}vh, width=${config.width}vw, height=${config.height}vh`);
+      character.style.left = `${config.left}vw`;
+      character.style.top = `${config.top}vh`;
+      character.style.width = `${config.width}vw`;
+      character.style.height = `${config.height}vh`;
+    }
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
     characterConfigs.forEach(setCharacterProperties);
@@ -276,6 +274,9 @@
     // Apply configurations to characters
     characterConfigs.forEach(setCharacterProperties);
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
