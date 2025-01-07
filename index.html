@@ -197,48 +197,52 @@
   </div>
 
   <script>
-    // Configuration for character positions and sizes
-    const characterConfigs = [
+  const characterConfigs = [
     {
-    id: 'character1',
-    x: 1.500, // 33px / 16
-    y: 5.8,     // 160px / 16
-    width: 27.010, // 402px / 16
-    height: 45.2775 // 459px / 16
+      id: 'character1',
+      left: 2.3, // Position relative to parent width (33px/1280px * 100)
+      top: 13.7, // Position relative to parent height (160px/1280px * 100)
+      width: 27.9, // Width relative to parent width (402px/1280px * 100)
+      height: 25.9 // Height relative to parent height (459px/1280px * 100)
     },
     {
-    id: 'character2',
-    x: 28.350, // 433px / 16
-    y: 4.975,   // 150px / 16
-    width: 29.0,  // 432px / 16
-    height: 31.575 // 459px / 16
+      id: 'character2',
+      left: 30.1, // Position relative to parent width (433px/1280px * 100)
+      top: 12.5, // Position relative to parent height (150px/1280px * 100)
+      width: 29.9, // Width relative to parent width (432px/1280px * 100)
+      height: 35.9 // Height relative to parent height (459px/1280px * 100)
     },
     {
-    id: 'character3',
-    x: 55.5,    // 840px / 16
-    y: 14.8475, // 295px / 16
-    width: 26.2, // 392px / 16
-    height: 31.3 // 455px / 16
+      id: 'character3',
+      left: 58.3, // Position relative to parent width (840px/1280px * 100)
+      top: 33.9, // Position relative to parent height (295px/1280px * 100)
+      width: 27.1, // Width relative to parent width (392px/1280px * 100)
+      height: 35.5 // Height relative to parent height (455px/1280px * 100)
     },
     {
-    id: 'character4',
-    x: 73.5625, // 1105px / 16
-    y: 4.0375,  // 127px / 16
-    width: 18.3875, // 283px / 16
-    height: 18.4375 // 295px / 16
+      id: 'character4',
+      left: 77.1, // Position relative to parent width (1105px/1280px * 100)
+      top: 9.8, // Position relative to parent height (127px/1280px * 100)
+      width: 19.3, // Width relative to parent width (283px/1280px * 100)
+      height: 23.0 // Height relative to parent height (295px/1280px * 100)
     }
-];
+  ];
 
-    // Apply configurations to set position and size
-    function setCharacterProperties(config) {
-      const character = document.getElementById(config.id);
-      if (character) {
-        character.style.left = `${config.x}rem`;
-        character.style.top = `${config.y}rem`;
-        character.style.width = `${config.width}rem`;
-        character.style.height = `${config.height}rem`;
-      }
+  // Apply configurations to characters
+  function setCharacterProperties(config) {
+    const character = document.getElementById(config.id);
+    if (character) {
+      character.style.left = `${config.left}%`;
+      character.style.top = `${config.top}%`;
+      character.style.width = `${config.width}%`;
+      character.style.height = `${config.height}%`;
     }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    characterConfigs.forEach(setCharacterProperties);
+  });
+
 
     // Get all characters and the background
     const characters = document.querySelectorAll('.character');
@@ -271,9 +275,6 @@
     // Apply configurations to characters
     characterConfigs.forEach(setCharacterProperties);
   </script>
-
-</body>
-</html>
 
 </body>
 </html>
