@@ -123,7 +123,7 @@
 
     <!-- Character 1 -->
     <div class="character" id="character1">
-      <img src="1.png" usemap="#image-map" alt="Character 1">
+      <img src="1.png" alt="Character 1">
       <div class="description-box">
         <table>
           <thead>
@@ -199,44 +199,44 @@
   <script>
     // Configuration for character positions and sizes
     const characterConfigs = [
-  {
+    {
     id: 'character1',
-    x: 2.0625em, // 33px / 16
-    y: 10em,     // 160px / 16
-    width: 25.125em, // 402px / 16
-    height: 28.6875em // 459px / 16
-  },
-  {
+    x: 1.500, // 33px / 16
+    y: 5.8,     // 160px / 16
+    width: 27.010, // 402px / 16
+    height: 45.2775 // 459px / 16
+    },
+    {
     id: 'character2',
-    x: 27.0625em, // 433px / 16
-    y: 9.375em,   // 150px / 16
-    width: 27em,  // 432px / 16
-    height: 28.6875em // 459px / 16
-  },
-  {
+    x: 28.350, // 433px / 16
+    y: 4.975,   // 150px / 16
+    width: 29.0,  // 432px / 16
+    height: 31.575 // 459px / 16
+    },
+    {
     id: 'character3',
-    x: 52.5em,    // 840px / 16
-    y: 18.4375em, // 295px / 16
-    width: 24.5em, // 392px / 16
-    height: 28.4375em // 455px / 16
-  },
-  {
+    x: 55.5,    // 840px / 16
+    y: 14.8475, // 295px / 16
+    width: 26.2, // 392px / 16
+    height: 31.3 // 455px / 16
+    },
+    {
     id: 'character4',
-    x: 69.0625em, // 1105px / 16
-    y: 7.9375em,  // 127px / 16
-    width: 17.6875em, // 283px / 16
-    height: 18.4375em // 295px / 16
-  }
+    x: 73.5625, // 1105px / 16
+    y: 4.0375,  // 127px / 16
+    width: 18.3875, // 283px / 16
+    height: 18.4375 // 295px / 16
+    }
 ];
 
     // Apply configurations to set position and size
     function setCharacterProperties(config) {
       const character = document.getElementById(config.id);
       if (character) {
-        character.style.left = `${config.x}px`;
-        character.style.top = `${config.y}px`;
-        character.style.width = `${config.width}px`;
-        character.style.height = `${config.height}px`;
+        character.style.left = `${config.x}rem`;
+        character.style.top = `${config.y}rem`;
+        character.style.width = `${config.width}rem`;
+        character.style.height = `${config.height}rem`;
       }
     }
 
@@ -271,6 +271,9 @@
     // Apply configurations to characters
     characterConfigs.forEach(setCharacterProperties);
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
