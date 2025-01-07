@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -59,7 +59,7 @@
 
     .character img {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: contain;
     }
 
@@ -92,9 +92,13 @@
       opacity: 0.2;
     }
 
-    #character4 .description-box,
-    #character3 .description-box {
+    #character4 .description-box {
       left: -320px;
+      top: -100px;
+    }
+    #character3 .description-box {
+      left: -50px;
+      top: -260px;
     }
   </style>
 </head>
@@ -207,30 +211,30 @@
     const characterConfigs = [
       {
         id: 'character1',
-        left: 33,
-        top: 160,
-        width: 402,
+        left: 30,
+        top: 141,
+        width: 356,
         height: 459
       },
       {
         id: 'character2',
-        left: 433,
-        top: 150,
-        width: 432,
-        height: 459
+        left: 385,
+        top: 132,
+        width: 384,
+        height: 59
       },
       {
         id: 'character3',
-        left: 840,
-        top: 295,
-        width: 392,
+        left: 747,
+        top: 260,
+        width: 350,
         height: 455
       },
       {
         id: 'character4',
-        left: 1105,
-        top: 127,
-        width: 283,
+        left: 987,
+        top: 116,
+        width: 246,
         height: 295
       }
     ];
