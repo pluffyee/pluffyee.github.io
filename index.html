@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1280, height=720, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+  <!-- Link to the favicon -->
   <link rel="icon" href="Daily Machiato.svg" type="image/svg">
-  <meta charset="UTF-8">
   <title>Pluffyee - A Thunderous Wolf with a Childlish Dog</title>
   <style>
     * {
@@ -13,31 +15,25 @@
       box-sizing: border-box;
     }
 
-    /* Flexbox container for the entire content */
+    
     .container {
-      display: flex;
-      justify-content: center; /* Center horizontally */
-      align-items: flex-start; /* Align to the top */
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
       position: relative;
+      width: 100vw; /* Full width of the viewport */
+      height: 100vh; /* Full height of the viewport */
+      overflow: hidden; /* Ensure nothing spills out */
     }
 
-    /* Flexbox container for the image */
     .image-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      position: relative;
+      position: absolute;
       width: 100%;
       height: 100%;
     }
 
-    /* Background image positioned 10px from top */
     .background-image {
-      position: relative;
-      top: 10px; /* Fixed 10px from the top */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 100vw;
       height: auto;
       max-height: 100vh;
@@ -46,19 +42,11 @@
       transition: filter 0.3s ease;
     }
 
-    /* Character container */
-    .characters-container {
-      display: flex;
-      align-items: flex-start; /* Align characters to the top */
-      width: 100%;
-      height: 100%;
-      position: absolute;
-    }
 
-    /* Styling for each character */
+
     .character {
-      position: relative;
-      transition: transform 0.3s ease, filter 0.3s ease;
+      position: absolute;
+      transition: filter 0.3s ease, opacity 0.3s ease;
     }
 
     .character img {
@@ -96,16 +84,16 @@
 
     /* Scale the character when hovered */
     .character.scaled {
-      transform: scale(1.05);
+      transform: scale(1.05); /* Slightly scale the character */
     }
 
     /* Fix overflow for the 4th character */
     #character4 .description-box {
-      left: -320px;
+      left: -320px; /* Move description box to the left */
     }
 
     #character3 .description-box {
-      left: -320px;
+      left: -320px; /* Move description box to the left */
     }
 
     /* Ensure boxes are not overflowing on small screens */
@@ -115,146 +103,144 @@
         font-size: 12px;
       }
     }
-
-    /* Optional: Add smooth transition for character hover effect */
     .character:hover {
-      transform: translate(-4px, -4px);
+      transform: translate(-4px, -4px); /* Move the character 4px in the opposite direction */
     }
 
+  /* Optional: Add some smooth transition effect */
+    .character {
+      transition: transform 0.3s ease; /* Ensures smooth movement */
+    }
+    /* Default styles for larger screens */
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="image-container">
-      <img src="PluffyEE_Refsheet.png" alt="Background" class="background-image" />
+  <div class="image-container">
+    <img src="PluffyEE_Refsheet.png" alt="Background" class="background-image" />
 
-      <!-- Character container for Flexbox layout -->
-      <div class="characters-container">
-        <!-- Character 1 -->
-        <div class="character" id="character1">
-          <img src="1.png" alt="Character 1">
-          <div class="description-box">
-            <table>
-              <thead>
-                <tr>
-                  <th>A thunderous wolf, childish dog</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Born to an unlikely pair - a proud wolf father and a gentle dog mother - Pluffyee is a unique hybrid with a striking appearance. His body is adorned with lightning-shaped scars, which he proudly displays as badges of honor. These distinctive markings make him stand out, especially when paired with his cool, mysterious demeanor. Yet beneath this impressive exterior lies a heart that's surprisingly childish - even more so than his brother Plufye.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <!-- Character 1 -->
+    <div class="character" id="character1">
+      <img src="1.png" alt="Character 1">
+      <div class="description-box">
+        <table>
+          <thead>
+            <tr>
+              <th>A thunderous wolf, childish dog</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Born to an unlikely pair - a proud wolf father and a gentle dog mother - Pluffyee is a unique hybrid with a striking appearance. His body is adorned with lightning-shaped scars, which he proudly displays as badges of honor. These distinctive markings make him stand out, especially when paired with his cool, mysterious demeanor. Yet beneath this impressive exterior lies a heart that's surprisingly childish - even more so than his brother Plufye.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-        <!-- Character 2 -->
-        <div class="character" id="character2">
-          <img src="2.png" alt="Character 2" />
-          <div class="description-box">
-            <table>
-              <thead>
-                <tr>
-                  <th>A Shy Star in Waiting</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Pluffyee (spelled with two 'f's and two 'e's, as he's quite particular about his name) has a secret that might surprise you: he's actually quite shy about joining the furry community. He's been planning his grand entrance for quite some time, hoping to make such a spectacular impression that he'll finally step out of his brother Plufye's shadow.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
 
-        <!-- Character 3 -->
-        <div class="character" id="character3">
-          <img src="3.png" alt="Character 3" />
-          <div class="description-box">
-            <table>
-              <thead>
-                <tr>
-                  <th>Thunder's Gentle Heart</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>While his tough appearance might seem intimidating at first glance, Pluffyee is actually one of the gentlest souls you'll ever meet. He absolutely adores being petted and promises not to bite, no matter how intimidating those thunder scars might make him appear. His playful nature always shines through, revealing the sweet personality behind the cool façade.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <div class="character" id="character2">
+      <img src="2.png" alt="Character 2" />
+      <div class="description-box">
+        <table>
+          <thead>
+            <tr>
+              <th>A Shy Star in Waiting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pluffyee (spelled with two 'f's and two 'e's, as he's quite particular about his name) has a secret that might surprise you: he's actually quite shy about joining the furry community. He's been planning his grand entrance for quite some time, hoping to make such a spectacular impression that he'll finally step out of his brother Plufye's shadow.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-        <!-- Character 4 -->
-        <div class="character" id="character4">
-          <img src="4.png" alt="Character 4" />
-          <div class="description-box">
-            <table>
-              <thead>
-                <tr>
-                  <th>The Perfect Storm of Personality</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Those who take the time to know Pluffyee discover a delightful contradiction: a tough-looking hybrid who's really just a big softie at heart. His unique blend of cool appearance and childish charm makes him impossible not to love, and he's always eager to make new friends - once he gets past his initial shyness, of course.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <div class="character" id="character3">
+      <img src="3.png" alt="Character 3" />
+      <div class="description-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Thunder's Gentle Heart</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>While his tough appearance might seem intimidating at first glance, Pluffyee is actually one of the gentlest souls you'll ever meet. He absolutely adores being petted and promises not to bite, no matter how intimidating those thunder scars might make him appear. His playful nature always shines through, revealing the sweet personality behind the cool façade.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="character" id="character4">
+      <img src="4.png" alt="Character 4" />
+      <div class="description-box">
+        <table>
+          <thead>
+            <tr>
+              <th>The Perfect Storm of Personality</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Those who take the time to know Pluffyee discover a delightful contradiction: a tough-looking hybrid who's really just a big softie at heart. His unique blend of cool appearance and childish charm makes him impossible not to love, and he's always eager to make new friends - once he gets past his initial shyness, of course.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
   <script>
-    const characterConfigs = [
-      {
-        id: 'character1',
-        left: 2.3, 
-        top: 10.8, 
-        width: 30.4, 
-        height: 6.6 
-      },
-      {
-        id: 'character2',
-        left: 2.4, 
-        top: 9.5, 
-        width: 32.5, 
-        height: 76.6 
-      },
-      {
-        id: 'character3',
-        left: 2.4, 
-        top: 31, 
-        width: 31, 
-        height: 76.6 
-      },
-      {
-        id: 'character4',
-        left: 0, 
-        top: 9.8, 
-        width: 23.3, 
-        height: 48.0 
-      }
-    ];
-
-    function setCharacterProperties(config) {
-      const character = document.getElementById(config.id);
-      if (character) {
-        character.style.left = `${config.left}vw`;
-        character.style.top = `${config.top}vh`;
-        character.style.width = `${config.width}vw`;
-        character.style.height = `${config.height}vh`;
-      }
+  const characterConfigs = [
+    {
+      id: 'character1',
+      left: 2.3, // Position relative to parent width (33px/1280px * 100)
+      top: 13.7, // Position relative to parent height (160px/1280px * 100)
+      width: 27.9, // Width relative to parent width (402px/1280px * 100)
+      height: 76.6 // Height relative to parent height (459px/1280px * 100)
+    },
+    {
+      id: 'character2',
+      left: 30.1, // Position relative to parent width (433px/1280px * 100)
+      top: 12.5, // Position relative to parent height (150px/1280px * 100)
+      width: 29.9, // Width relative to parent width (432px/1280px * 100)
+      height: 76.6 // Height relative to parent height (459px/1280px * 100)
+    },
+    {
+      id: 'character3',
+      left: 58.3, // Position relative to parent width (840px/1280px * 100)
+      top: 33.9, // Position relative to parent height (295px/1280px * 100)
+      width: 27.1, // Width relative to parent width (392px/1280px * 100)
+      height: 55.5 // Height relative to parent height (455px/1280px * 100)
+    },
+    {
+      id: 'character4',
+      left: 77.1, // Position relative to parent width (1105px/1280px * 100)
+      top: 9.8, // Position relative to parent height (127px/1280px * 100)
+      width: 19.3, // Width relative to parent width (283px/1280px * 100)
+      height: 48.0 // Height relative to parent height (295px/1280px * 100)
     }
+  ];
 
-    document.addEventListener('DOMContentLoaded', () => {
-      characterConfigs.forEach(setCharacterProperties);
-    });
+  function setCharacterProperties(config) {
+    const character = document.getElementById(config.id);
+    if (character) {
+      console.log(`Setting position for ${config.id}: left=${config.left}vw, top=${config.top}vh, width=${config.width}vw, height=${config.height}vh`);
+      character.style.left = `${config.left}vw`;
+      character.style.top = `${config.top}vh`;
+      character.style.width = `${config.width}vw`;
+      character.style.height = `${config.height}vh`;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    characterConfigs.forEach(setCharacterProperties);
+  });
+
 
     // Get all characters and the background
     const characters = document.querySelectorAll('.character');
@@ -283,6 +269,9 @@
         });
       });
     });
+
+    // Apply configurations to characters
+    characterConfigs.forEach(setCharacterProperties);
   </script>
 
 </body>
