@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=1280, height=720, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
-
   <!-- Link to the favicon -->
   <link rel="icon" href="Daily Machiato.svg" type="image/svg">
   <meta charset="UTF-8">
@@ -17,9 +16,7 @@
       box-sizing: border-box;
     }
 
-    body, html {
-      height: 100%;
-    }
+    
     .container {
       position: relative;
       width: 100vw; /* Full width of the viewport */
@@ -41,10 +38,12 @@
       width: 100vw;
       height: auto;
       max-height: 100vh;
-      object-fit: contain;
+      object-fit: cover;
       z-index: -1;
       transition: filter 0.3s ease;
     }
+
+
 
     .character {
       position: absolute;
@@ -53,7 +52,7 @@
 
     .character img {
       width: 100%;
-      height: auto;
+      height: 100%;
     }
 
     .description-box {
@@ -203,35 +202,35 @@
       left: 2.3, // Position relative to parent width (33px/1280px * 100)
       top: 13.7, // Position relative to parent height (160px/1280px * 100)
       width: 27.9, // Width relative to parent width (402px/1280px * 100)
-      height: 25.9 // Height relative to parent height (459px/1280px * 100)
+      height: 76.6 // Height relative to parent height (459px/1280px * 100)
     },
     {
       id: 'character2',
       left: 30.1, // Position relative to parent width (433px/1280px * 100)
       top: 12.5, // Position relative to parent height (150px/1280px * 100)
       width: 29.9, // Width relative to parent width (432px/1280px * 100)
-      height: 35.9 // Height relative to parent height (459px/1280px * 100)
+      height: 76.6 // Height relative to parent height (459px/1280px * 100)
     },
     {
       id: 'character3',
       left: 58.3, // Position relative to parent width (840px/1280px * 100)
       top: 33.9, // Position relative to parent height (295px/1280px * 100)
       width: 27.1, // Width relative to parent width (392px/1280px * 100)
-      height: 35.5 // Height relative to parent height (455px/1280px * 100)
+      height: 55.5 // Height relative to parent height (455px/1280px * 100)
     },
     {
       id: 'character4',
       left: 77.1, // Position relative to parent width (1105px/1280px * 100)
       top: 9.8, // Position relative to parent height (127px/1280px * 100)
       width: 19.3, // Width relative to parent width (283px/1280px * 100)
-      height: 23.0 // Height relative to parent height (295px/1280px * 100)
+      height: 48.0 // Height relative to parent height (295px/1280px * 100)
     }
   ];
 
-  // Apply configurations to characters
   function setCharacterProperties(config) {
     const character = document.getElementById(config.id);
     if (character) {
+      console.log(`Setting position for ${config.id}: left=${config.left}vw, top=${config.top}vh, width=${config.width}vw, height=${config.height}vh`);
       character.style.left = `${config.left}vw`;
       character.style.top = `${config.top}vh`;
       character.style.width = `${config.width}vw`;
