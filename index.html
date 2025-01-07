@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1440, height=900, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-
-  <!-- Link to the favicon -->
-  <link rel="icon" href="Daily Machiato.svg" type="image/svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pluffyee - A Thunderous Wolf with a Childlish Dog</title>
   <style>
     * {
@@ -15,43 +11,56 @@
       box-sizing: border-box;
     }
 
+    body {
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f0f0;
+    }
     
     .container {
       position: relative;
-      width: 100vw; /* Full width of the viewport */
-      height: 100vh; /* Full height of the viewport */
-      overflow: hidden; /* Ensure nothing spills out */
+      width: 1280px;
+      height: 720px;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-origin: center center;
     }
 
     .image-container {
-      position: absolute;
-      width: 100%;
-      height: 100%;
+      position: relative;
+      width: 1280px;
+      height: 720px;
     }
 
     .background-image {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: auto;
-      max-height: 100vh;
-      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       z-index: -1;
       transition: filter 0.3s ease;
     }
 
-
-
     .character {
       position: absolute;
-      transition: filter 0.3s ease, opacity 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .character img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
     }
 
     .description-box {
@@ -68,6 +77,7 @@
       font-size: 14px;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
       border-radius: 8px;
+      z-index: 10;
     }
 
     .character:hover .description-box {
@@ -82,44 +92,18 @@
       opacity: 0.2;
     }
 
-    /* Scale the character when hovered */
-    .character.scaled {
-      transform: scale(1.05); /* Slightly scale the character */
-    }
-
-    /* Fix overflow for the 4th character */
-    #character4 .description-box {
-      left: -320px; /* Move description box to the left */
-    }
-
+    #character4 .description-box,
     #character3 .description-box {
-      left: -320px; /* Move description box to the left */
+      left: -320px;
     }
-
-    /* Ensure boxes are not overflowing on small screens */
-    @media (max-width: 600px) {
-      .description-box {
-        width: 180px;
-        font-size: 12px;
-      }
-    }
-    .character:hover {
-      transform: translate(-4px, -4px); /* Move the character 4px in the opposite direction */
-    }
-
-  /* Optional: Add some smooth transition effect */
-    .character {
-      transition: transform 0.3s ease; /* Ensures smooth movement */
-    }
-    /* Default styles for larger screens */
   </style>
 </head>
 <body>
-
-  <div class="image-container">
-    <img src="PluffyEE_Refsheet.png" alt="Background" class="background-image" />
-
-    <!-- Character 1 -->
+  <div class="container">
+    <div class="wrapper">
+      <div class="image-container">
+        <img src="PluffyEE_Refsheet.png" alt="Background" class="background-image" />
+         <!-- Character 1 -->
     <div class="character" id="character1">
       <img src="1.png" alt="Character 1">
       <div class="description-box">
@@ -193,86 +177,101 @@
       </div>
     </div>
   </div>
+      </div>
+    </div>
+  </div>
 
   <script>
-  const characterConfigs = [
-    {
-      id: 'character1',
-      left: 2.3, // Position relative to parent width (33px/1280px * 100)
-      top: 13.7, // Position relative to parent height (160px/1280px * 100)
-      width: 27.9, // Width relative to parent width (402px/1280px * 100)
-      height: 76.6 // Height relative to parent height (459px/1280px * 100)
-    },
-    {
-      id: 'character2',
-      left: 30.1, // Position relative to parent width (433px/1280px * 100)
-      top: 12.5, // Position relative to parent height (150px/1280px * 100)
-      width: 29.9, // Width relative to parent width (432px/1280px * 100)
-      height: 76.6 // Height relative to parent height (459px/1280px * 100)
-    },
-    {
-      id: 'character3',
-      left: 58.3, // Position relative to parent width (840px/1280px * 100)
-      top: 33.9, // Position relative to parent height (295px/1280px * 100)
-      width: 27.1, // Width relative to parent width (392px/1280px * 100)
-      height: 55.5 // Height relative to parent height (455px/1280px * 100)
-    },
-    {
-      id: 'character4',
-      left: 77.1, // Position relative to parent width (1105px/1280px * 100)
-      top: 9.8, // Position relative to parent height (127px/1280px * 100)
-      width: 19.3, // Width relative to parent width (283px/1280px * 100)
-      height: 48.0 // Height relative to parent height (295px/1280px * 100)
+    function calculateScale() {
+      const container = document.querySelector('.container');
+      const wrapper = document.querySelector('.wrapper');
+      
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+      
+      const targetAspectRatio = 1280 / 720;
+      const currentAspectRatio = containerWidth / containerHeight;
+      
+      let scale;
+      if (currentAspectRatio > targetAspectRatio) {
+        // Height constrained
+        scale = containerHeight / 720;
+      } else {
+        // Width constrained
+        scale = containerWidth / 1280;
+      }
+      
+      wrapper.style.transform = `scale(${scale})`;
     }
-  ];
 
-  function setCharacterProperties(config) {
-    const character = document.getElementById(config.id);
-    if (character) {
-      console.log(`Setting position for ${config.id}: left=${config.left}vw, top=${config.top}vh, width=${config.width}vw, height=${config.height}vh`);
-      character.style.left = `${config.left}vw`;
-      character.style.top = `${config.top}vh`;
-      character.style.width = `${config.width}vw`;
-      character.style.height = `${config.height}vh`;
+    const characterConfigs = [
+      {
+        id: 'character1',
+        left: 33,
+        top: 160,
+        width: 402,
+        height: 459
+      },
+      {
+        id: 'character2',
+        left: 433,
+        top: 150,
+        width: 432,
+        height: 459
+      },
+      {
+        id: 'character3',
+        left: 840,
+        top: 295,
+        width: 392,
+        height: 455
+      },
+      {
+        id: 'character4',
+        left: 1105,
+        top: 127,
+        width: 283,
+        height: 295
+      }
+    ];
+
+    function setCharacterProperties(config) {
+      const character = document.getElementById(config.id);
+      if (character) {
+        character.style.left = `${config.left}px`;
+        character.style.top = `${config.top}px`;
+        character.style.width = `${config.width}px`;
+        character.style.height = `${config.height}px`;
+      }
     }
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    characterConfigs.forEach(setCharacterProperties);
-  });
+    document.addEventListener('DOMContentLoaded', () => {
+      characterConfigs.forEach(setCharacterProperties);
+      calculateScale();
 
+      const characters = document.querySelectorAll('.character');
+      const backgroundImage = document.querySelector('.background-image');
 
-    // Get all characters and the background
-    const characters = document.querySelectorAll('.character');
-    const backgroundImage = document.querySelector('.background-image');
-
-    characters.forEach(character => {
-      character.addEventListener('mouseenter', () => {
-        // Blur background
-        backgroundImage.classList.add('blurred');
-
-        // Dim other characters
-        characters.forEach(otherCharacter => {
-          if (otherCharacter !== character) {
-            otherCharacter.classList.add('dimmed');
-          }
+      characters.forEach(character => {
+        character.addEventListener('mouseenter', () => {
+          backgroundImage.classList.add('blurred');
+          characters.forEach(otherCharacter => {
+            if (otherCharacter !== character) {
+              otherCharacter.classList.add('dimmed');
+            }
+          });
         });
-      });
 
-      character.addEventListener('mouseleave', () => {
-        // Remove blur from background
-        backgroundImage.classList.remove('blurred');
-
-        // Remove dimming from all characters
-        characters.forEach(otherCharacter => {
-          otherCharacter.classList.remove('dimmed');
+        character.addEventListener('mouseleave', () => {
+          backgroundImage.classList.remove('blurred');
+          characters.forEach(otherCharacter => {
+            otherCharacter.classList.remove('dimmed');
+          });
         });
       });
     });
 
-    // Apply configurations to characters
-    characterConfigs.forEach(setCharacterProperties);
+    window.addEventListener('resize', calculateScale);
   </script>
-
 </body>
 </html>
