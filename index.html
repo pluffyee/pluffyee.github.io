@@ -110,6 +110,26 @@
       top: auto;
       transform: translateY(-10px);
     }
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      .description-box {
+        position: fixed; /* Fixed position on mobile */
+        left: 50% !important; /* Override any other left positions */
+        top: 50% !important; /* Override any other top positions */
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .character:hover {
+        transform: none; /* Disable hover transform on mobile */
+      }
+    }
   </style>
 </head>
 <body>
@@ -288,6 +308,10 @@
 
       const characters = document.querySelectorAll('.character');
       const backgroundImage = document.querySelector('.background-image');
+      // Handle orientation change on mobile
+      window.addEventListener('orientationchange', () => {
+        setTimeout(calculateScale, 100);
+      });
 
       characters.forEach(character => {
         character.addEventListener('mouseenter', () => {
