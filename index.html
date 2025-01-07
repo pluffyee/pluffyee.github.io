@@ -31,15 +31,15 @@
     }
 
     .background-image {
-      position: absolute;
-      top: 33px;
-      left: 0px;
-      width: 100vw;
-      height: auto;
-      max-height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      transition: filter 0.3s ease;
+    position: fixed; /* Fix the background relative to the viewport */
+    top: calc(34px); /* Ensure it stays 10px from the top */
+    left: 0;
+    width: 100vw;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    transition: filter 0.3s ease;
     }
 
 
